@@ -1,0 +1,178 @@
+$blue: #64B5F6;
+$green: #81C783;
+$yellow: #FFD54F;
+$red: #E57373; //#F48687
+///////////////////////////////////
+$background: #F9F9F9;
+$toolbar-bg: #93B9F4;
+$toolbar-border: #93B9F4;
+$sidenav-bg: #425566;
+
+$text-color: rgba(0,0,0,0.67);
+
+$font-size-big: 20px;
+$font-size-normal: 18px;
+$font-size-small: 11px;
+
+$line-height: 26px;
+///////////////////////////////////
+body, #body, #outer-content{
+  background-color: $background;
+}
+#header {
+  background-color: $sidenav-bg;
+}
+.md-toolbar-tools {
+  height: inherit;
+  font-size: $font-size-big;
+}
+
+#md-sidenav-left {
+  background-color: $sidenav-bg;
+  //max-width: 160px;
+  color: white;
+  md-icon {
+    color: white;
+  }
+  .md-list-item-text {
+    font-size: $font-size-small;
+    text-transform: uppercase;
+  }
+  .main-menu .md-list-item-text {
+    text-align: center;
+  }
+}
+/* ===========================
+ * Content
+ * =========================== */
+#inner-content {
+  border-right: 1px solid #f1f1f1;
+  border-left: 1px solid #f1f1f1;
+  background-color: $background;
+  padding: 25px;
+
+  md-card {
+    margin-top: 25px;
+    background: white;
+    color: $text-color;
+    md-card-header {
+      border-bottom: 1px solid #EAEAEA;
+    }
+    md-icon {
+      color: $text-color;
+      margin-right: 10px;
+    }
+
+    div.input-row {
+      padding: 15px 20px;
+    }
+    p {
+      font-size: 17px;
+    }
+  }
+
+  md-card.green {
+    md-card-header {
+      background-color: $green;
+      color: white;
+      md-icon {
+        color: white;
+      }
+    }
+    button.md-raised {
+      background-color: $green;
+    }
+    button.md-button.md-raised[disabled] {
+      color: white !important;
+    }
+  }
+  md-card.red  {
+    md-card-header {
+      background-color: $red;
+      color: white;
+      md-icon {
+        color: white;
+      }
+    }
+    button.md-raised {
+      background-color: $red;
+    }
+    button.md-button.md-raised[disabled] {
+      color: white !important;
+    }
+  }
+  md-card.blue {
+    md-card-header {
+      background-color: $blue;
+      color: white;
+      md-icon {
+        color: white;
+      }
+    }
+    button.md-raised {
+      background-color: $blue;
+    }
+    button.md-button.md-raised[disabled] {
+      color: white !important;
+    }
+  }
+
+  .colored-card {
+    margin-top: 8px;
+    color: white;
+    padding: 15px;
+    padding-left: 25px;
+    .number {
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+  #questions {
+    background: url(../images/questions.png) no-repeat;
+    background-position: right;
+    background-color: $red;
+  }
+
+  #points {
+    background: url(../images/points.png) no-repeat;
+    background-position: right;
+    background-color: $blue;
+  }
+  #time{
+    background: url(../images/time.png) no-repeat;
+    background-position: right;
+    background-color: $yellow;
+  }
+  #achievements {
+    background: url(../images/achievements.png) no-repeat;
+    background-position: right;
+    background-color: $green;
+  }
+
+
+}
+
+#outer-content {
+  padding-right: 0px;
+}
+
+
+span.red {
+  color: $red;
+}
+/* ===========================
+ * Icons
+ * =========================== */
+// Rules for sizing the icon.
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+// Rules for using icons as black on a light background.
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+// Rules for using icons as white on a dark background.
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }

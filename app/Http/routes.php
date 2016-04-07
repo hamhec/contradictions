@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('master');
+});
+
+Route::group(['prefix'=>'/api'],function(){
+  Route::post('/login','UserController@create');
+  Route::post('/logout','UserController@logout');
 });

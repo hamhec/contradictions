@@ -1,0 +1,80 @@
+<md-card class="red">
+  <md-card-header>
+    <md-icon md-font-library="material-icons md-dark">info</md-icon>
+    <md-card-header-text>
+      <span class="md-title">Experimentation</span>
+    </md-card-header-text>
+  </md-card-header>
+  <md-card-content>
+    <p style="text-align: justify">
+      Le but de cette expérimentation est de vous apprendre une manière de <span class="red">réfléchir en présence d'informations contradictoires</span>. Vous aller voir <span class="red">7 scenarios imaginaires</span> qui contiennent des inconsistances, pour chaque senario il aura <span class="red">deux questions</span>, la première question est un exemple pour vous montrer comment prendre en compte les incohérences, vous aurez la réponse a cette question suivie d'une <span class="red">explication</span>. Ensuite, vous devrez répondre a la deuxième question par 'Oui' ou 'Non', vous aurez <span class="red">3 minutes</span> pour répondre, et <span class="red">1 minute</span> après pour justifier votre réponse. La justification nous sert juste pour vérifier que vous n'avez pas deviné la réponse au hasard.
+    </p>
+
+    <p style="text-align: justify">
+      L'objectif est de bien répondre aux questions le plus rapidement possible, vous gagnierez des points et des 'achievements' selon vos réponses et vos justifications.
+    </p>
+    <p style="text-align: center"><span class="red">Good Luck.</span></p>
+  </md-card-content>
+</md-card>
+
+
+<md-card class="blue">
+  <md-card-header>
+    <md-icon md-font-library="material-icons md-dark">play_for_work</md-icon>
+    <md-card-header-text>
+      <span class="md-title">Jouer!</span>
+    </md-card-header-text>
+  </md-card-header>
+
+    <form name="loginForm" ng-hide="home.user">
+      <div class="input-row" layout="row">
+        <div flex="20" layout="row" layout-align="start center">SEXE</div>
+        <md-radio-group name="gender_radio" ng-required="true" ng-model="home.gender" layout="row" flex>
+          <md-radio-button value="0" class="md-primary" flex>Homme</md-radio-button>
+          <md-radio-button value="1" flex>Femme</md-radio-button>
+        </md-radio-group>
+      </div>
+
+      <div class="input-row" layout="row">
+        <div flex="20" layout="row" layout-align="start center">AGE</div>
+        <md-select name="age_select" ng-required="true" ng-model="home.age" style="text-align: center; margin: 0px;" flex>
+          <md-option ng-repeat="age in home.ages" ng-value="age">{{age}}</md-option>
+        </md-select>
+      </div>
+
+      <div class="input-row" layout="row" layout-align="center center" flex>
+        <md-button class="md-primary md-raised" ng-disabled="loginForm.$invalid" ng-click="home.login()">
+          Jouer
+        </md-button>
+      </div>
+    </form>
+
+    <md-card-content ng-show="home.user">
+      <p style="text-align: center">
+        Il vous reste 7 questions!
+      </p>
+      <div layout="row" layout-align="center center" flex>
+        <md-button class="md-primary md-raised" ng-click="main.goTo('/question')">
+          Continuer à Jouer
+        </md-button>
+        <md-button class="md-primary md-raised" ng-click="home.logout()">
+          Déconnection
+        </md-button>
+      </div>
+    </md-card-content>
+</md-card>
+
+
+<md-card>
+  <md-card-header>
+    <md-icon md-font-library="material-icons md-dark">change_history</md-icon>
+    <md-card-header-text>
+      <span class="md-title">About</span>
+    </md-card-header-text>
+  </md-card-header>
+  <md-card-content>
+    <p >
+      Ce site utilise des cookies pour vous donnez la meilleur experience possible. Developpe par Abdelraouf Hecham - 2016. Le code est disponible sur Github sous la licence MIT.
+    </p>
+  </md-card-content>
+</md-card>

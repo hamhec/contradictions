@@ -1,0 +1,27 @@
+{
+  "name": "Outcome",
+  "authors": [
+    "Abdelraouf Hecham <hecham.abdelraouf@gmail.com>"
+  ],
+  "description": "Todo app with outcomes and stuff",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-material": "^1.0.6",
+    "angular-cookies": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "sc-date-time": "^1.1.6",
+    "font-awesome": "^4.5.0"
+  }
+}
