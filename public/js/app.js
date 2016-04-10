@@ -9,19 +9,30 @@ var Expdiag;
         });
         $routeProvider.when('/questions', {
             templateUrl: 'js/views/question.html',
-            controller: 'QuestionController as question'
+            controller: 'QuestionController as ques'
+        });
+        $routeProvider.when('/score', {
+            templateUrl: 'js/views/score.html',
+            controller: 'ScoreController as score'
         });
         $routeProvider.otherwise({ redirectTo: '/home' });
     })
         .config(function ($mdThemingProvider) {
     });
-    Expdiag.angularApp.run(function ($route, $rootScope, $location, $cookies) {
+    Expdiag.angularApp.run(function ($route, $rootScope, $location, $cookies, UserService) {
         $rootScope.$on('$routeChangeStart', function (event, next, current) {
+            UserService.loggedUser().then(function (response) {
+                $rootScope.infos = response.data.infos;
+            });
             var user = $cookies.getObject('user');
             if ($location.path() !== "" && ($location.path() != "/home") && (user == null)) {
                 $location.path('/home');
-                $route.reload();
             }
         });
     });
+    Expdiag.angularApp.filter("trust", ['$sce', function ($sce) {
+            return function (htmlCode) {
+                return $sce.trustAsHtml(htmlCode);
+            };
+        }]);
 })(Expdiag || (Expdiag = {}));

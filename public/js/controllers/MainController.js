@@ -4,41 +4,29 @@ var Expdiag;
     (function (Controllers) {
         "use strict";
         var MainController = (function () {
-            function MainController($route, $location, $cookies, $mdDialog, $mdSidenav) {
+            function MainController($route, $location, $cookies, $mdSidenav) {
                 this.$route = $route;
                 this.$location = $location;
                 this.$cookies = $cookies;
-                this.$mdDialog = $mdDialog;
                 this.$mdSidenav = $mdSidenav;
                 this.version = "0.0.1";
+                console.log("call to constructor on main");
             }
             MainController.prototype.goTo = function (page) {
                 this.$location.path(page);
-                this.$route.reload();
             };
             MainController.prototype.toggleSidenav = function (menuId) {
                 this.$mdSidenav(menuId).toggle();
             };
-            MainController.prototype.showNotCompleted = function (ev) {
-                this.$mdDialog.show(this.$mdDialog.alert()
-                    .parent(angular.element(document.querySelector('#content')))
-                    .clickOutsideToClose(true)
-                    .title('Oops!')
-                    .textContent("This functionnality has no been coded yet, please take a look at our Github: <a href='https://github.com/hamhec/lifer'><md-button>Lifer Github</md-button></a>")
-                    .ariaLabel('Alert, Not coded yet')
-                    .ok('Ok')
-                    .targetEvent(ev));
-            };
-            MainController.prototype.domainGoTo = function (domain) {
-                this.$cookies.putObject('domain', domain);
-                this.goTo('/domain');
-            };
-            MainController.prototype.openMenu = function ($mdOpenMenu, ev) {
-                $mdOpenMenu(ev);
+            MainController.prototype.printTime = function (time) {
+                var tmp = Math.floor(time / 1000);
+                var minutes = Math.floor(tmp / 60);
+                var seconds = tmp % 60;
+                return minutes + "m " + seconds + "s";
             };
             return MainController;
         }());
         Controllers.MainController = MainController;
-        Expdiag.angularApp.controller("MainController", ['$route', '$location', '$cookies', '$mdDialog', '$mdSidenav', MainController]);
+        Expdiag.angularApp.controller("MainController", ['$route', '$location', '$cookies', '$mdSidenav', MainController]);
     })(Controllers = Expdiag.Controllers || (Expdiag.Controllers = {}));
 })(Expdiag || (Expdiag = {}));

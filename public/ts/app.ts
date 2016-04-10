@@ -16,7 +16,12 @@ module Expdiag {
 
       $routeProvider.when('/questions',{
         templateUrl:'js/views/question.html',
-        controller:'QuestionController as question'
+        controller:'QuestionController as ques'
+      });
+
+      $routeProvider.when('/score',{
+        templateUrl:'js/views/score.html',
+        controller:'ScoreController as score'
       });
 
       $routeProvider.otherwise({ redirectTo: '/home' });
@@ -25,13 +30,22 @@ module Expdiag {
       //$mdThemingProvider.theme('default').dark();
     });
     // Handle Security
-    angularApp.run(function($route, $rootScope, $location, $cookies) {
+    angularApp.run(function($route, $rootScope, $location, $cookies, UserService) {
       $rootScope.$on('$routeChangeStart', function(event, next, current) {
+        UserService.loggedUser().then(function(response) {
+          $rootScope.infos = response.data.infos;
+        });
         var user = $cookies.getObject('user');
         if($location.path() !== "" && ($location.path() != "/home") && (user == null)) {
           $location.path('/home');
-          $route.reload();
+          //$route.reload();
         }
       })
     });
+
+    angularApp.filter("trust", ['$sce', function($sce) {
+      return function(htmlCode){
+        return $sce.trustAsHtml(htmlCode);
+      }
+    }]);
 }

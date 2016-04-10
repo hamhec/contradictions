@@ -18,4 +18,9 @@ Route::get('/', function () {
 Route::group(['prefix'=>'/api'],function(){
   Route::post('/login','UserController@create');
   Route::post('/logout','UserController@logout');
+  Route::post('/user','UserController@loggedUser');
+
+  Route::post('/questions/next','QuestionController@nextQuestion');
+  Route::post('/questions/question','QuestionController@question');
+  Route::post('/questions/answer','QuestionController@answer');
 });

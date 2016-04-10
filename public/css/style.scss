@@ -41,6 +41,18 @@ body, #body, #outer-content{
   .main-menu .md-list-item-text {
     text-align: center;
   }
+  md-list-item.md-2-line {
+    h3 {
+      color: white;
+      text-transform: none;
+      text-align: justify;
+    }
+    p {
+      color: rgba(255,255,255, 0.54);
+      text-transform: none;
+      text-align: justify;
+    }
+  }
 }
 /* ===========================
  * Content
@@ -159,6 +171,15 @@ body, #body, #outer-content{
 
 span.red {
   color: $red;
+}
+
+span.pro, span.opp {
+  color: rgb(36, 144, 39);
+  //font-weight: bold;
+}
+span.opp {
+  //color: $green;
+  //font-weight: bold;
 }
 /* ===========================
  * Icons

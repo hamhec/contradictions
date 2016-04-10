@@ -7,9 +7,9 @@ module Expdiag.Controllers {
           public $location: ng.ILocationService,
           public $cookies: ng.cookies.ICookiesService,
           public UserService: Expdiag.Services.UserService) {
-
+            this.user = $cookies.get('user');
         }
-        public user:boolean = (this.$cookies.getObject('user') != null);
+        public user;
         public gender;
         public age;
 
@@ -19,23 +19,21 @@ module Expdiag.Controllers {
         // General functions
         // =========================
         public login(): void {
-            var user : Expdiag.IUser = {
+            var user : IUserAccount = {
               sexe: true,
               age: 10
             }
 
             this.UserService.login(user).then( (response: any): void => {
-              this.$cookies.putObject('user', user);
               this.$location.path("/questions");
-              this.$route.reload();
             });
         }
 
         public logout(): void {
           this.UserService.logout().then((response: any): void => {
-            this.$cookies.remove('user');
+            this.user = null;
             this.$location.path("/home");
-            this.$route.reload();
+            //this.$route.reload();
           });
         }
     }

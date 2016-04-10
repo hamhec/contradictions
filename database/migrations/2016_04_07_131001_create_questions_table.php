@@ -16,9 +16,11 @@ class CreateQuestionsTable extends Migration
           $table->increments('id');
           $table->text('world');
           $table->string('question1');
-          $table->text('explanation');
+          $table->tinyInteger('right_answer1');
+          $table->text('exp_classic');
+          $table->text('exp_dialog');
           $table->string('question2');
-          $table->tinyInteger('right_answer');
+          $table->tinyInteger('right_answer2');
         });
     }
 

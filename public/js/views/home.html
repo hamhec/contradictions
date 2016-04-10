@@ -7,7 +7,7 @@
   </md-card-header>
   <md-card-content>
     <p style="text-align: justify">
-      Le but de cette expérimentation est de vous apprendre une manière de <span class="red">réfléchir en présence d'informations contradictoires</span>. Vous aller voir <span class="red">7 scenarios imaginaires</span> qui contiennent des inconsistances, pour chaque senario il aura <span class="red">deux questions</span>, la première question est un exemple pour vous montrer comment prendre en compte les incohérences, vous aurez la réponse a cette question suivie d'une <span class="red">explication</span>. Ensuite, vous devrez répondre a la deuxième question par 'Oui' ou 'Non', vous aurez <span class="red">3 minutes</span> pour répondre, et <span class="red">1 minute</span> après pour justifier votre réponse. La justification nous sert juste pour vérifier que vous n'avez pas deviné la réponse au hasard.
+      Le but de cette expérimentation est de vous apprendre une manière de <span class="red">réfléchir en présence d'informations contradictoires</span>. Vous aller voir <span class="red">7 scenarios imaginaires</span> qui contiennent des inconsistances, pour chaque senario il aura <span class="red">deux questions</span>, la première question est un exemple pour vous montrer comment prendre en compte les incohérences, vous aurez la réponse a cette question suivie d'une <span class="red">explication</span>. Ensuite, vous devrez répondre a la deuxième question par 'Oui' ou 'Non', vous aurez <span class="red">2 minutes</span> pour répondre, et <span class="red">1 minute</span> après pour justifier votre réponse. La justification nous sert juste pour vérifier que vous n'avez pas deviné la réponse au hasard.
     </p>
 
     <p style="text-align: justify">
@@ -50,12 +50,18 @@
     </form>
 
     <md-card-content ng-show="home.user">
-      <p style="text-align: center">
-        Il vous reste 7 questions!
+      <p style="text-align: center" ng-if="infos.answered_questions >= 7">
+        Bien joué! Vous avez répondu à toutes les questions.
+      </p>
+      <p style="text-align: center" ng-if="infos.answered_questions < 7">
+        Il vous reste {{main.infos.answered_questions}} questions!
       </p>
       <div layout="row" layout-align="center center" flex>
-        <md-button class="md-primary md-raised" ng-click="main.goTo('/question')">
+        <md-button class="md-primary md-raised" ng-click="main.goTo('/questions')" ng-if="infos.remaining > 0">
           Continuer à Jouer
+        </md-button>
+        <md-button class="md-primary md-raised" ng-click="main.goTo('/score')" ng-if="infos.remaining <= 0">
+          Voir Score
         </md-button>
         <md-button class="md-primary md-raised" ng-click="home.logout()">
           Déconnection
@@ -73,8 +79,8 @@
     </md-card-header-text>
   </md-card-header>
   <md-card-content>
-    <p >
-      Ce site utilise des cookies pour vous donnez la meilleur experience possible. Developpe par Abdelraouf Hecham - 2016. Le code est disponible sur Github sous la licence MIT.
+    <p style="text-align: center">
+      Ce site utilise des cookies pour vous donnez la meilleur expérience possible. Developpé par Abdelraouf Hecham - 2016.
     </p>
   </md-card-content>
 </md-card>

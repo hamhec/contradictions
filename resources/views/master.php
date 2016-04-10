@@ -24,10 +24,13 @@
     <script type="text/javascript" src="/js/app.js"></script>
     <!-- Application Services -->
     <script type="text/javascript" src="/js/services/UserService.js"></script>
+    <script type="text/javascript" src="/js/services/QuestionService.js"></script>
+    <script type="text/javascript" src="/js/services/ScoreService.js"></script>
     <!-- Application Controllers -->
     <script type="text/javascript" src="/js/controllers/MainController.js"></script>
     <script type="text/javascript" src="/js/controllers/HomeController.js"></script>
     <script type="text/javascript" src="/js/controllers/QuestionController.js"></script>
+    <script type="text/javascript" src="/js/controllers/ScoreController.js"></script>
     <!-- Application Directives -->
 
     <!-- CSRF Token -->
@@ -43,7 +46,8 @@
 
       <h1 class="md-toolbar-tools" flex>Experimentation Logique</h1>
 
-      <md-button ng-click="goTo('/schedule')">0 Points</md-button>
+      <md-button ng-click="main.goTo('/home')">Acceuil</md-button>
+      <md-button ng-click="main.goTo('/score')">{{infos.score.points}} Points</md-button>
     </md-toolbar> <!-- /Header -->
 
     <!-- Body -->
@@ -56,15 +60,19 @@
             <div class="md-list-item-text" flex>Achievements</div>
           </div>
 
-          <p class="md-body-2" style="padding: 20px; text-align:center">
+          <p class="md-body-2" style="padding: 20px; text-align:center" ng-if="!infos.id">
             Lisez bien la partie experimentation. Indiquez votre sexe et age et commencez a jouer!
           </p>
-          <!-- Schedule
-          <md-list-item class="">
-              <md-icon md-font-library="material-icons">schedule</md-icon>
-              <div class="md-list-item-text" flex>Schedule</div>
+
+          <md-list-item class="md-2-line" ng-repeat="achievement in infos.achievements">
+            <md-icon md-font-library="material-icons">{{achievement.icon}}</md-icon>
+            <div class="md-list-item-text">
+              <h3>{{ achievement.title}}</h3>
+              <p>{{ achievement.description}}</p>
+            </div>
+            <md-divider></md-divider>
           </md-list-item>
-          <!-- Today -->
+
         </md-list>
 
       </md-sidenav> <!-- /Sidenav -->
@@ -79,28 +87,28 @@
               <div layout="row">
                 <md-card class="colored-card" id="questions" flex="25" md-whiteframe="3">
                   <div layout="column">
-                    <div class="number">0/7</div>
+                    <div class="number">{{infos.score.answered_questions}}/{{infos.total_questions}}</div>
                     <div>Questions</div>
                   </div>
                 </md-card>
 
                 <md-card class="colored-card" id="points" flex="25" md-whiteframe="3">
                   <div layout="column">
-                    <div class="number">0</div>
+                    <div class="number">{{infos.score.points}}</div>
                     <div>Points</div>
                   </div>
                 </md-card>
 
                 <md-card class="colored-card" id="time" flex="25" md-whiteframe="3">
                   <div layout="column">
-                    <div class="number">0s</div>
+                    <div class="number">{{main.printTime(infos.score.total_time)}}</div>
                     <div>Temps Total</div>
                   </div>
                 </md-card>
 
                 <md-card class="colored-card" id="achievements" flex="25" md-whiteframe="3">
                   <div layout="column">
-                    <div class="number">0/10</div>
+                    <div class="number">{{infos.achievements.length}}</div>
                     <div>Achievements</div>
                   </div>
                 </md-card>
