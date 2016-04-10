@@ -8,7 +8,6 @@ module Expdiag.Controllers {
           public $location: ng.ILocationService,
           public $cookies: ng.cookies.ICookiesService,
           public $mdSidenav: ng.material.ISidenavService) {
-            console.log("call to constructor on main");
         }
 
 

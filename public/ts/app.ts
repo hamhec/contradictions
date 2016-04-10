@@ -31,9 +31,22 @@ module Expdiag {
     });
     // Handle Security
     angularApp.run(function($route, $rootScope, $location, $cookies, UserService) {
+
+      console.log($rootScope.infos);
       $rootScope.$on('$routeChangeStart', function(event, next, current) {
         UserService.loggedUser().then(function(response) {
           $rootScope.infos = response.data.infos;
+          if($rootScope.infos == undefined) {
+            $rootScope.infos = {
+              total_questions: 0,
+              score : {
+                points: 0,
+                answered_questions: 0,
+                total_time: 0,
+              },
+              achievements: []
+            };
+          }
         });
         var user = $cookies.getObject('user');
         if($location.path() !== "" && ($location.path() != "/home") && (user == null)) {

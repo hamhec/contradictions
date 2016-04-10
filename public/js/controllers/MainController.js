@@ -10,7 +10,6 @@ var Expdiag;
                 this.$cookies = $cookies;
                 this.$mdSidenav = $mdSidenav;
                 this.version = "0.0.1";
-                console.log("call to constructor on main");
             }
             MainController.prototype.goTo = function (page) {
                 this.$location.path(page);
