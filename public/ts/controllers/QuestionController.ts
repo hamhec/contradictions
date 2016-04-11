@@ -6,6 +6,7 @@ module Expdiag.Controllers {
         constructor(public $route: ng.route.IRouteService,
           public $location: ng.ILocationService,
           public $cookies: ng.cookies.ICookiesService,
+          public $scope: ng.IScope,
           public $interval: ng.IIntervalService,
           public QuestionService: Expdiag.Services.QuestionService) {
             this.QuestionService.nextQuestion().then( (response: any): void => {
@@ -18,6 +19,7 @@ module Expdiag.Controllers {
               }
             });
             ctrl = this;
+            $scope.$on('$destroy', function () {ctrl.cancelIntervals()});
         }
 
         public world: IWorld;
@@ -122,7 +124,7 @@ module Expdiag.Controllers {
           ctrl.helper.progressBar = ctrl.helper.time * ctrl.helper.progressBarIncrement / 100;
         }
 
-        private cancelIntervals():void {
+        public cancelIntervals():void {
           ctrl.$interval.cancel(ctrl.moveProgressBarTimer);
           ctrl.$interval.cancel(ctrl.updateProgressBarTimer);
           ctrl.$interval.cancel(ctrl.justificationTimer);
@@ -135,5 +137,5 @@ module Expdiag.Controllers {
         }
     }
 
-    angularApp.controller("QuestionController", ['$route', '$location', '$cookies', '$interval', 'QuestionService', QuestionController]);
+    angularApp.controller("QuestionController", ['$route', '$location', '$cookies', '$scope', '$interval', 'QuestionService', QuestionController]);
 }

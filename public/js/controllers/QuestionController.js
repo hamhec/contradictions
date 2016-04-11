@@ -5,11 +5,12 @@ var Expdiag;
         "use strict";
         var ctrl;
         var QuestionController = (function () {
-            function QuestionController($route, $location, $cookies, $interval, QuestionService) {
+            function QuestionController($route, $location, $cookies, $scope, $interval, QuestionService) {
                 var _this = this;
                 this.$route = $route;
                 this.$location = $location;
                 this.$cookies = $cookies;
+                this.$scope = $scope;
                 this.$interval = $interval;
                 this.QuestionService = QuestionService;
                 this.helper = {
@@ -33,6 +34,7 @@ var Expdiag;
                     }
                 });
                 ctrl = this;
+                $scope.$on('$destroy', function () { ctrl.cancelIntervals(); });
             }
             QuestionController.prototype.getQuestion = function () {
                 var _this = this;
@@ -115,6 +117,6 @@ var Expdiag;
             return QuestionController;
         }());
         Controllers.QuestionController = QuestionController;
-        Expdiag.angularApp.controller("QuestionController", ['$route', '$location', '$cookies', '$interval', 'QuestionService', QuestionController]);
+        Expdiag.angularApp.controller("QuestionController", ['$route', '$location', '$cookies', '$scope', '$interval', 'QuestionService', QuestionController]);
     })(Controllers = Expdiag.Controllers || (Expdiag.Controllers = {}));
 })(Expdiag || (Expdiag = {}));
