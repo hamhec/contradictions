@@ -15,8 +15,8 @@ var Expdiag;
             HomeController.prototype.login = function () {
                 var _this = this;
                 var user = {
-                    sexe: true,
-                    age: 10
+                    sexe: this.gender,
+                    age: this.age
                 };
                 this.UserService.login(user).then(function (response) {
                     _this.$location.path("/questions");

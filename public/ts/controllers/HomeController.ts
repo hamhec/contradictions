@@ -20,8 +20,8 @@ module Expdiag.Controllers {
         // =========================
         public login(): void {
             var user : IUserAccount = {
-              sexe: true,
-              age: 10
+              sexe: this.gender,
+              age: this.age
             }
 
             this.UserService.login(user).then( (response: any): void => {
