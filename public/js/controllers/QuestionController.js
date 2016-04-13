@@ -13,6 +13,13 @@ var Expdiag;
                 this.$scope = $scope;
                 this.$interval = $interval;
                 this.QuestionService = QuestionService;
+                this.evaluations = [
+                    { text: "L'explication est trés claire", value: 5 },
+                    { text: "L'explication est claire", value: 4 },
+                    { text: "L'explication est moyenne", value: 3 },
+                    { text: "L'explication n'est pas claire", value: 2 },
+                    { text: "L'explication n'est pas claire du tout", value: 1 }
+                ];
                 this.helper = {
                     justify: false,
                     timeout: false,

@@ -46,7 +46,7 @@
 
       <h1 class="md-toolbar-tools" flex>Experimentation Logique</h1>
 
-      <md-button ng-click="main.goTo('/home')">Acceuil</md-button>
+      <md-button ng-click="main.goTo('/home')">Accueil</md-button>
       <md-button ng-click="main.goTo('/score')">{{infos.score.points}} Points</md-button>
     </md-toolbar> <!-- /Header -->
 

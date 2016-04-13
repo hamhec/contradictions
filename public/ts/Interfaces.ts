@@ -4,7 +4,7 @@ module Expdiag {
       sexe: boolean;
       age: number;
     }
-    
+
     export interface IWorld {
       id: number,
       world: string,
@@ -23,6 +23,7 @@ module Expdiag {
       answer: number,
       answer_time: number,
       justification: string,
-      justification_time: number
+      justification_time: number,
+      evaluation: number
     }
 }

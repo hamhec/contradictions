@@ -25,6 +25,7 @@ class QuestionController extends Controller {
           $answer = Answer::create(['answer' => 1,
           'answer_time' => 200000,
           'justification_time' => 0,
+          'evaluation' => 3,
           'question_id' => $question->id,
           'user_id' => $user->id]);
 

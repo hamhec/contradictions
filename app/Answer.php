@@ -12,6 +12,7 @@ class Answer extends Model
     'answer',
     'justification',
     'answer_time',
+    'evaluation',
     'justification_time',
     'question_id',
     'user_id',

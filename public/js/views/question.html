@@ -28,6 +28,13 @@
         <p style="text-align: justify; margin:0px; line-height: 23px" ng-bind-html="ques.world.explanation | trust">
         </p>
         </div>
+
+        <div class="input-row" layout="row" style="margin-top: 20px;">
+          <div flex="20" layout="row" layout-align="start center">Evaluation de l'explication:</div>
+          <md-select name="age_select" ng-required="true" ng-model="ques.data.evaluation" style="text-align: center; margin: 0px;" flex>
+            <md-option ng-repeat="eval in ques.evaluations" ng-value="eval.value">{{eval.text}}</md-option>
+          </md-select>
+        </div>
       </md-card-content>
 </md-card>
 
@@ -45,7 +52,7 @@
   <md-progress-linear class="md-warn md-hue-1" md-mode="determinate" value="{{ques.helper.progressBar | number:4}}"></md-progress-linear>
 
     <div class="input-row" layout="row" layout-align="center center" flex ng-hide="ques.question">
-      <md-button class="md-primary md-raised" ng-click="ques.getQuestion()">
+      <md-button class="md-primary md-raised" ng-disabled="!ques.data.evaluation" ng-click="ques.getQuestion()">
         Afficher la question
       </md-button>
     </div>
