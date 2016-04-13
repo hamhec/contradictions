@@ -30,7 +30,7 @@
         </div>
 
         <div class="input-row" layout="row" style="margin-top: 20px;">
-          <div flex="20" layout="row" layout-align="start center">Evaluation de l'explication:</div>
+          <div flex="25" layout="row" layout-align="start center" style="text-align: center">Comment trouvez vous cette explication?</div>
           <md-select name="age_select" ng-required="true" ng-model="ques.data.evaluation" style="text-align: center; margin: 0px;" flex>
             <md-option ng-repeat="eval in ques.evaluations" ng-value="eval.value">{{eval.text}}</md-option>
           </md-select>
