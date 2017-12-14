@@ -11,91 +11,6 @@ class AchievementsSeeder extends Seeder
      */
     public function run()
     {
-      // Question 1 Tom l'ours
-      DB::table('achievements')->insert([
-          'title' => "Un ours qui embrasse des gens?!",
-          'description' => "Répondre par 'Non' à la question 'Est-ce que Tom l’ours peut embrasser les gens?'",
-          'icon' => "pets"
-      ]);
-      DB::table('achievements')->insert([
-          'title' => "Embrasse moi Tom!",
-          'description' => "Répondre par 'Oui' à la question 'Est-ce que Tom l’ours peut embrasser les gens?'",
-          'icon' => "pets"
-      ]);
-      // Question 2 John
-      DB::table('achievements')->insert([
-          'title' => "John ne crie plus.",
-          'description' => "Répondre par 'Non' à la question 'Est-ce que John crie sans raison?'",
-          'icon' => "record_voice_over"
-      ]);
-      DB::table('achievements')->insert([
-          'title' => "John arrête de crier!",
-          'description' => "Répondre par 'Oui' à la question 'Est-ce que John crie sans raison?'",
-          'icon' => "record_voice_over"
-      ]);
-      // Question 3 Vampires
-      DB::table('achievements')->insert([
-          'title' => "J'ai aimé Twilight!",
-          'description' => "Répondre par 'Non' à la question 'Est-ce que le médicament SNG est pour les hybrides?'",
-          'icon' => "polymer"
-      ]);
-      DB::table('achievements')->insert([
-          'title' => "Blade prend de l'SNG!",
-          'description' => "Répondre par 'Oui' à la question 'Est-ce que le médicament SNG est pour les hybrides?'",
-          'icon' => "polymer"
-      ]);
-
-
-      // Question 4 Victor
-      DB::table('achievements')->insert([
-          'title' => "Le pavillon est en quarantaine!",
-          'description' => "Répondre par 'Non' à la question 'Est-ce que Victor peut accéder pavillon de la quarantaine?'",
-          'icon' => "pan_tool"
-      ]);
-      DB::table('achievements')->insert([
-          'title' => "Victor passe par tout.",
-          'description' => "Répondre par 'Oui' à la question 'Est-ce que Victor peut accéder pavillon de la quarantaine?'",
-          'icon' => "pan_tool"
-      ]);
-
-
-      // Question 5 Jude
-      DB::table('achievements')->insert([
-          'title' => "Jude assis! Pas courir!",
-          'description' => "Répondre par 'Non' à la question 'Est-ce que Jude porte des chaussures de course?'",
-          'icon' => "directions_run"
-      ]);
-      DB::table('achievements')->insert([
-          'title' => "J'aime ton Nike.",
-          'description' => "Répondre par 'Oui' à la question 'Est-ce que Jude porte des chaussures de course?'",
-          'icon' => "directions_run"
-      ]);
-
-      // Question 6 Anastasia
-      DB::table('achievements')->insert([
-          'title' => "Elle n'ira jamais au parc!",
-          'description' => "Répondre par 'Non' à la question 'Est-ce que Anastasia est considéré comme un patient indépendant?'",
-          'icon' => "accessible"
-      ]);
-      DB::table('achievements')->insert([
-          'title' => "Anastasia va bien.",
-          'description' => "Répondre par 'Oui' à la question 'Est-ce que Anastasia est considéré comme un patient indépendant?'",
-          'icon' => "accessible"
-      ]);
-
-
-      // Question 7 Victor
-      DB::table('achievements')->insert([
-          'title' => "Il fait tout noir en salle 13!",
-          'description' => "Répondre par 'Non' à la question 'Est-ce que la salle 13 est toujours illuminée?'",
-          'icon' => "highlight"
-      ]);
-      DB::table('achievements')->insert([
-          'title' => "Lumière!",
-          'description' => "Répondre par 'Oui' à la question 'Est-ce que la salle 13 est toujours illuminée?'",
-          'icon' => "highlight"
-      ]);
-
       // Justification
       DB::table('achievements')->insert([
           'title' => "Je sais ce que je dis!",
@@ -107,5 +22,64 @@ class AchievementsSeeder extends Seeder
           'description' => "Ne pas justifier une réponse.",
           'icon' => "thumb_down"
       ]);
+
+      // Questions
+      DB::table('achievements')->insert([
+          'title' => "First Blood!",
+          'description' => "Répondre à une question.",
+          'icon' => "touch_app"
+      ]);
+
+      // Oui
+      DB::table('achievements')->insert([
+          'title' => "Affirmatif chef!",
+          'description' => "Répondre par 'Oui' à 1 question.",
+          'icon' => "done"
+      ]);
+      DB::table('achievements')->insert([
+          'title' => "Je confirme!",
+          'description' => "Répondre par 'Oui' à 3 questions.",
+          'icon' => "done_all"
+      ]);
+      DB::table('achievements')->insert([
+          'title' => "On peut tout dire!",
+          'description' => "Répondre par 'Oui' à 5 questions.",
+          'icon' => "check_circle"
+      ]);
+
+      // Non
+      DB::table('achievements')->insert([
+          'title' => "Négatif chef!",
+          'description' => "Répondre par 'Non' à 1 question.",
+          'icon' => "clear"
+      ]);
+      DB::table('achievements')->insert([
+          'title' => "Non c'est non!",
+          'description' => "Répondre par 'Non' à 3 questions.",
+          'icon' => "block"
+      ]);
+      DB::table('achievements')->insert([
+          'title' => "Je suis un pessimiste par nature!",
+          'description' => "Répondre par 'Non' à 5 questions.",
+          'icon' => "backspace"
+      ]);
+
+      // Je ne sais pas
+      DB::table('achievements')->insert([
+          'title' => "Je suis prudent!",
+          'description' => "Répondre par 'Je ne sais pas' à 1 question.",
+          'icon' => "remove"
+      ]);
+      DB::table('achievements')->insert([
+          'title' => "Je suis indécis!",
+          'description' => "Répondre par 'Je ne sais pas' à 3 questions.",
+          'icon' => "remove_circle_outline"
+      ]);
+      DB::table('achievements')->insert([
+          'title' => "Je ne sais rien!",
+          'description' => "Répondre par 'Je ne sais pas' à 5 questions.",
+          'icon' => "remove_circle"
+      ]);
+
     }
 }

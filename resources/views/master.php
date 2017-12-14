@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="initial-scale=1">
-    <title>Expdiag</title>
+    <title>Contradictions</title>
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
 
@@ -44,7 +44,7 @@
         <md-icon md-font-library="material-icons md-dark">view_headline</md-icon>
       </md-button>
 
-      <h1 class="md-toolbar-tools" flex>Experimentation Logique</h1>
+      <h1 class="md-toolbar-tools" flex>Experimentation sur la Gestion des Contradictions</h1>
 
       <md-button ng-click="main.goTo('/home')">Accueil</md-button>
       <md-button ng-click="main.goTo('/score')">{{infos.score.points}} Points</md-button>

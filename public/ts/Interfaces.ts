@@ -7,10 +7,7 @@ module Expdiag {
 
     export interface IWorld {
       id: number,
-      world: string,
-      question1: string,
-      right_answer1: number,
-      explanation: string,
+      situation: string
     }
 
     export interface IQuestion {
@@ -23,7 +20,6 @@ module Expdiag {
       answer: number,
       answer_time: number,
       justification: string,
-      justification_time: number,
-      evaluation: number
+      justification_time: number
     }
 }

@@ -10,7 +10,7 @@ class Question extends Model
     protected $table = "questions";
     public $timestamps = false;
 
-    protected $fillable = ['world', 'question1','right_answer1', 'exp_classic', 'exp_dialog', 'question2', 'right_answer2'];
+    protected $fillable = ['situation', 'question'];
 
     public function answers() {
       return $this->hasMany('App\Answer');
@@ -26,6 +26,6 @@ class Question extends Model
     }
 
     public function getQuestion() {
-      return array('id' => $this->id, 'question'=> $this->question2);
+      return array('id' => $this->id, 'question'=> $this->question);
     }
 }

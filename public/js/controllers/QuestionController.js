@@ -13,28 +13,21 @@ var Expdiag;
                 this.$scope = $scope;
                 this.$interval = $interval;
                 this.QuestionService = QuestionService;
-                this.evaluations = [
-                    { text: "L'explication est trés claire", value: 5 },
-                    { text: "L'explication est claire", value: 4 },
-                    { text: "L'explication est moyenne", value: 3 },
-                    { text: "L'explication n'est pas claire", value: 2 },
-                    { text: "L'explication n'est pas claire du tout", value: 1 }
-                ];
                 this.helper = {
                     justify: false,
                     timeout: false,
-                    max: 120000,
-                    minutes: 2,
+                    max: 240000,
+                    minutes: 4,
                     seconds: 0,
                     progressBar: 100,
-                    progressBarIncrement: (1 / 12),
+                    progressBarIncrement: (1 / 24),
                     start: 0,
                     time: 0,
                 };
                 this.QuestionService.nextQuestion().then(function (response) {
                     var data = response.data;
                     if (data.finished === undefined) {
-                        _this.world = data;
+                        _this.situation = data;
                     }
                     else {
                         _this.$location.path("/score");
@@ -45,7 +38,7 @@ var Expdiag;
             }
             QuestionController.prototype.getQuestion = function () {
                 var _this = this;
-                this.QuestionService.getQuestion(this.world.id).then(function (response) {
+                this.QuestionService.getQuestion(this.situation.id).then(function (response) {
                     _this.question = response.data;
                     _this.startTimers();
                 });
@@ -56,8 +49,8 @@ var Expdiag;
                 this.data.question_id = this.question.id;
                 this.helper.justify = true;
                 this.helper.progressBar = 100;
-                this.helper.progressBarIncrement = (1 / 6);
-                this.helper.max = 60000;
+                this.helper.progressBarIncrement = (1 / 12);
+                this.helper.max = 120000;
                 this.startTimers();
             };
             QuestionController.prototype.justify = function () {
@@ -85,7 +78,7 @@ var Expdiag;
                 if (ctrl.helper.time < 0) {
                     ctrl.cancelIntervals();
                     ctrl.helper.progressBar = 100;
-                    ctrl.helper.minutes = 2;
+                    ctrl.helper.minutes = 4;
                     ctrl.helper.seconds = 0;
                     if (!ctrl.helper.justify) {
                         if (ctrl.data != undefined && ctrl.data.answer !== null) {

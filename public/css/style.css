@@ -1,0 +1,140 @@
+body, #body, #outer-content {
+  background-color: #F9F9F9; }
+
+#header {
+  background-color: #425566; }
+
+.md-toolbar-tools {
+  height: inherit;
+  font-size: 20px; }
+
+#md-sidenav-left {
+  background-color: #425566;
+  color: white; }
+  #md-sidenav-left md-icon {
+    color: white; }
+  #md-sidenav-left .md-list-item-text {
+    font-size: 11px;
+    text-transform: uppercase; }
+  #md-sidenav-left .main-menu .md-list-item-text {
+    text-align: center; }
+  #md-sidenav-left md-list-item.md-2-line h3 {
+    color: white;
+    text-transform: none;
+    text-align: justify; }
+  #md-sidenav-left md-list-item.md-2-line p {
+    color: rgba(255, 255, 255, 0.54);
+    text-transform: none;
+    text-align: justify; }
+
+/* ===========================
+ * Content
+ * =========================== */
+#inner-content {
+  border-right: 1px solid #f1f1f1;
+  border-left: 1px solid #f1f1f1;
+  background-color: #F9F9F9;
+  padding: 25px; }
+  #inner-content md-card {
+    margin-top: 25px;
+    background: white;
+    color: rgba(0, 0, 0, 0.67); }
+    #inner-content md-card md-card-header {
+      border-bottom: 1px solid #EAEAEA; }
+    #inner-content md-card md-icon {
+      color: rgba(0, 0, 0, 0.67);
+      margin-right: 10px; }
+    #inner-content md-card div.input-row {
+      padding: 15px 20px; }
+    #inner-content md-card p {
+      font-size: 17px; }
+  #inner-content md-card.green md-card-header {
+    background-color: #81C783;
+    color: white; }
+    #inner-content md-card.green md-card-header md-icon {
+      color: white; }
+  #inner-content md-card.green button.md-raised {
+    background-color: #81C783; }
+  #inner-content md-card.green button.md-button.md-raised[disabled] {
+    color: white !important; }
+  #inner-content md-card.red md-card-header {
+    background-color: #E57373;
+    color: white; }
+    #inner-content md-card.red md-card-header md-icon {
+      color: white; }
+  #inner-content md-card.red button.md-raised {
+    background-color: #E57373; }
+  #inner-content md-card.red button.md-button.md-raised[disabled] {
+    color: white !important; }
+  #inner-content md-card.blue md-card-header {
+    background-color: #64B5F6;
+    color: white; }
+    #inner-content md-card.blue md-card-header md-icon {
+      color: white; }
+  #inner-content md-card.blue button.md-raised {
+    background-color: #64B5F6; }
+  #inner-content md-card.blue button.md-button.md-raised[disabled] {
+    color: white !important; }
+  #inner-content .colored-card {
+    margin-top: 8px;
+    color: white;
+    padding: 15px;
+    padding-left: 25px; }
+    #inner-content .colored-card .number {
+      font-size: 25px;
+      font-weight: bold; }
+  #inner-content #questions {
+    background: url(../images/questions.png) no-repeat;
+    background-position: right;
+    background-color: #E57373; }
+  #inner-content #points {
+    background: url(../images/points.png) no-repeat;
+    background-position: right;
+    background-color: #64B5F6; }
+  #inner-content #time {
+    background: url(../images/time.png) no-repeat;
+    background-position: right;
+    background-color: #FFD54F; }
+  #inner-content #achievements {
+    background: url(../images/achievements.png) no-repeat;
+    background-position: right;
+    background-color: #81C783; }
+
+#outer-content {
+  padding-right: 0px; }
+
+span.red {
+  color: #E57373; }
+
+span.green {
+  color: #81C783; }
+
+span.pro, span.opp {
+  color: #249027; }
+
+/* ===========================
+ * Icons
+ * =========================== */
+.material-icons.md-18 {
+  font-size: 18px; }
+
+.material-icons.md-24 {
+  font-size: 24px; }
+
+.material-icons.md-36 {
+  font-size: 36px; }
+
+.material-icons.md-48 {
+  font-size: 48px; }
+
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54); }
+
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26); }
+
+.material-icons.md-light {
+  color: white; }
+
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3); }

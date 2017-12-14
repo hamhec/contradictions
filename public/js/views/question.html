@@ -3,39 +3,15 @@
   <md-card-header>
     <md-icon md-font-library="material-icons md-dark">info</md-icon>
     <md-card-header-text>
-      <span class="md-title">Enoncé</span>
+      <span class="md-title">Situation</span>
     </md-card-header-text>
   </md-card-header>
   <md-card-content>
     <div layout="row" layout-align="center center">
-      <p style="text-align: justify; margin:0px; line-height: 23px" ng-bind-html="ques.world.world | trust">
+      <p style="text-align: justify; margin:0px; line-height: 23px" ng-bind-html="ques.situation.situation | trust">
       </p>
     </div>
   </md-card-content>
-</md-card>
-
-<md-card class="green">
-  <md-card-header>
-    <md-icon md-font-library="material-icons md-dark">explore</md-icon>
-    <md-card-header-text>
-      <span class="md-title">Exemple et Explication</span>
-    </md-card-header-text>
-  </md-card-header>
-      <div class="input-row" layout="row" layout-align="center center" ng-bind-html="ques.world.question1 | trust">
-      </div>
-      <md-card-content>
-        <div layout="row" layout-align="center center">
-        <p style="text-align: justify; margin:0px; line-height: 23px" ng-bind-html="ques.world.explanation | trust">
-        </p>
-        </div>
-
-        <div class="input-row" layout="row" style="margin-top: 20px;">
-          <div flex="25" layout="row" layout-align="start center" style="text-align: center">Comment trouvez vous cette explication?</div>
-          <md-select name="age_select" ng-required="true" ng-model="ques.data.evaluation" style="text-align: center; margin: 0px;" flex>
-            <md-option ng-repeat="eval in ques.evaluations" ng-value="eval.value">{{eval.text}}</md-option>
-          </md-select>
-        </div>
-      </md-card-content>
 </md-card>
 
 <!---->
@@ -52,14 +28,14 @@
   <md-progress-linear class="md-warn md-hue-1" md-mode="determinate" value="{{ques.helper.progressBar | number:4}}"></md-progress-linear>
 
     <div class="input-row" layout="row" layout-align="center center" flex ng-hide="ques.question">
-      <md-button class="md-primary md-raised" ng-disabled="!ques.data.evaluation" ng-click="ques.getQuestion()">
+      <md-button class="md-primary md-raised" ng-click="ques.getQuestion()">
         Afficher la question
       </md-button>
     </div>
     <!-- Question -->
     <div layout="column" ng-show="ques.question">
       <div class="input-row" layout="row" layout-align="center center" flex >
-        <div>{{ques.question.question}}</div>
+        <div ng-bind-html="ques.question.question | trust"></div>
       </div>
       <!-- Answer -->
       <form name="answerForm">
@@ -67,7 +43,8 @@
           <md-radio-group name="gender_radio" ng-required="true" ng-model="ques.data.answer" layout="row" flex>
             <div layout="row" layout-align="center center" flex>
             <md-radio-button value="1" class="md-primary">Oui</md-radio-button></div>
-            <div layout="row" layout-align="center center" flex><md-radio-button value="0">Non</md-radio-button></div>
+            <div layout="row" layout-align="center center" flex><md-radio-button value="-1">Non</md-radio-button></div>
+            <div layout="row" layout-align="center center" flex><md-radio-button value="0">Je ne sais pas</md-radio-button></div>
           </md-radio-group>
       </div>
 

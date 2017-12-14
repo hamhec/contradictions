@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'age', 'gender', 'explanation_type', 'created_at', 'updated_at'
+        'name', 'age', 'gender', 'created_at', 'updated_at'
     ];
 
     public function answers() {
@@ -47,13 +47,10 @@ class User extends Authenticatable
 
     static public function getLoggedUser() {
       $id = Session::get('user', false);
-      return ($id == true) ? User::findOrFail($id) : false;
-    }
-
-    static public function getExplanationType() {
-      $nbr_users = User::all()->count();
-      $nbr_classic = User::where('explanation_type', User::EXPLANATION_CLASSIC)->count();
-
-      return ($nbr_classic < ($nbr_users/2)) ? User::EXPLANATION_CLASSIC : User::EXPLANATION_DIALOG;
+      if($id == true) {
+        $user = User::find($id);
+        return ($user != null) ? $user : false;
+      }
+      return false;
     }
 }

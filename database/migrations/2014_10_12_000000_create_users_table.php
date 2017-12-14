@@ -17,7 +17,6 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->integer('age');
             $table->tinyInteger('gender');
-            $table->tinyInteger('explanation_type');
             $table->timestamps();
         });
     }

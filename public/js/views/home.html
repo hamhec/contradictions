@@ -1,19 +1,57 @@
-<md-card class="red">
+<md-card class="green">
   <md-card-header>
     <md-icon md-font-library="material-icons md-dark">info</md-icon>
     <md-card-header-text>
-      <span class="md-title">Experimentation</span>
+      <span class="md-title">Situation</span>
     </md-card-header-text>
   </md-card-header>
   <md-card-content>
     <p style="text-align: justify">
-      Le but de cette expérimentation est de vous apprendre une manière de <span class="red">réfléchir en présence d'informations contradictoires</span>. Vous aller voir <span class="red">7 scenarios imaginaires</span> qui contiennent des inconsistances, pour chaque senario il aura <span class="red">deux questions</span>, la première question est un exemple pour vous montrer comment prendre en compte les incohérences, vous aurez la réponse a cette question suivie d'une <span class="red">explication</span>. Ensuite, vous devrez répondre a la deuxième question par 'Oui' ou 'Non', vous aurez <span class="red">2 minutes</span> pour répondre, et <span class="red">1 minute</span> après pour justifier votre réponse. La justification nous sert juste pour vérifier que vous n'avez pas deviné la réponse au hasard.
+      Vous êtes un ingénieur qui analyse des situations à travers un ensemble de <span class="green">capteurs</span>.
+      Ces capteurs, dont vous ignorez la <span class="green">fiabilité</span> (sauf mention contraire), vous donnent des informations sur les <span class="green">propriétés</span> d’un objet particulier nommé <span class="green">"o"</span>.
+
+      Ainsi, vous pouvez avoir l’information que <span class="green">"o"</span> a la propriété <span class="green">"A"</span> ("o est un A"), qui peut signifier, par exemple, que <span class="">"o"</span> est rouge, <span class="">"o"</span> est lourd, <span class="">"o"</span> est solide, etc.
+    </p>
+    <p style="text-align: justify">
+      <span class="green" style="font-weight: bold">NB:</span> nous procédons ici à une abstraction par des <span class="green">lettres majuscules</span> afin de s’assurer que le contexte des situations n’influence pas votre réponse.
     </p>
 
     <p style="text-align: justify">
-      L'objectif est de bien répondre aux questions le plus rapidement possible, vous gagnierez des points et des 'achievements' selon vos réponses et vos justifications.
+      Par ailleurs, en tant qu'ingénieur, vous avez des connaissances <span class="green">(généralement vraies)</span> sur les liens entre ces propriétés, Ainsi, dire que <span class="green">"Tout objet qui a la propriété A a aussi la propriété B"</span> indique que le fait qu'un objet a la propriété <span class="green">"A"</span> implique généralement le fait qu'il a la propriété <span class="green">"B"</span>. Par exemple, un lien pourrait être: tout ce qui est "rare" (A) est "cher" (B).
     </p>
-    <p style="text-align: center"><span class="red">Good Luck.</span></p>
+    <p style="text-align: justify">
+      <span class="green" style="font-weight: bold">NB:</span> ces liens <span class="green">ne s'appliquent qu'à l'intérieurs de chaque situation</span>, c’est a dire, il n’y a jamais de lien entre les propriétés des différentes situations, même si les lettres sont les mêmes.
+    </p>
+
+    <p style="text-align: justify">
+      Certaines propriétés <span class="green">ne peuvent apparaître ensemble sur un même objet</span>. Ainsi dire "qu'un objet ne peut pas avoir les propriétés  C et D en même temps" indique, par exemple, un objet ne peut jamais être "cher" (C) et "pas cher" (D) à la fois.
+    </p>
+  </md-card-content>
+</md-card>
+
+
+<md-card class="red">
+  <md-card-header>
+    <md-icon md-font-library="material-icons md-dark">stars</md-icon>
+    <md-card-header-text>
+      <span class="md-title">Challenge</span>
+    </md-card-header-text>
+  </md-card-header>
+  <md-card-content>
+    <p style="text-align: justify">
+      Votre mission, si vous l’acceptez, est de répondre aux questions de chaque situations. Vous avez trois réponses possibles: <span class="red">"oui"</span>, <span class="red">"non"</span>, ou <span class="red">"je ne sais pas"</span>. Ainsi, pour une situation donnée, à la question "peut on dire que "o" est un B?":
+      <ul>
+<li><span class="red">"Oui"</span> indique que vous pouvez conclure que <span class="red">"o" a la propriété "B"</span>.</li>
+<li><span class="red">"Non"</span> indique que vous ne pouvez conclure que <span class="red">"o" n’a pas la propriété "B"</span>.</li>
+<li><span class="red">"Je ne sais pas"</span> indique que vous ne pouvez ni conclure que <span class="red">"o" a la propriété "B"</span> ni qu'il <span class="red">n'a pas la propriété "B"</span>.</li>
+</ul>
+    </p>
+
+    <p style="text-align: justify">
+      L'objectif est de voir comment vous réfléchissez en présence <span class="red">d'informations contradictoires</span>. Vous allez voir <span class="red">8 situations</span> qui contiennent des contradictions, pour chaque situation il y aura une question. Vous avez <span class="red">4 minutes</span> pour répondre à chaque question, et <span class="red">2 minutes</span> pour justifier (brièvement) votre réponse.
+      <!--<span class="red">Il n'y a pas de bonnes ou de mauvaises réponses</span>.--> Le temps est juste un indicateur pour eviter que l'experimentation ne dure trop longtemps.
+      Vous gagnierez des points et des <span class="red">'achievements'</span> selon vos réponses et vos justifications.
+    </p>
   </md-card-content>
 </md-card>
 
@@ -25,8 +63,7 @@
       <span class="md-title">Jouer!</span>
     </md-card-header-text>
   </md-card-header>
-
-    <form name="loginForm" ng-hide="home.user">
+    <form name="loginForm" ng-show="home.user == undefined">
       <div class="input-row" layout="row">
         <div flex="20" layout="row" layout-align="start center">SEXE</div>
         <md-radio-group name="gender_radio" ng-required="true" ng-model="home.gender" layout="row" flex>

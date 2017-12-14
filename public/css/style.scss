@@ -1,5 +1,6 @@
 $blue: #64B5F6;
 $green: #81C783;
+$dark-green: #378D3C;
 $yellow: #FFD54F;
 $red: #E57373; //#F48687
 ///////////////////////////////////
@@ -171,6 +172,9 @@ body, #body, #outer-content{
 
 span.red {
   color: $red;
+}
+span.green {
+  color: $dark-green;
 }
 
 span.pro, span.opp {

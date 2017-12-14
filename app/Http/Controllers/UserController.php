@@ -21,9 +21,6 @@ class UserController extends Controller {
       $user = new User($input);
       // Set user's unique id
       $user->name = uniqid();
-      // Define which explanation he will get
-      $user->explanation_type =
-      User::getExplanationType();
 
       $user->save();
 
@@ -46,7 +43,7 @@ class UserController extends Controller {
     public function loggedUser() {
       $user = User::getLoggedUser();
       if($user == false) {
-        return "null";
+        return null;
       }
       return Response::json(array('user_id' => $user->id, 'infos' => $user->getInfos()));
     }

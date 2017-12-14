@@ -23,9 +23,8 @@ class QuestionController extends Controller {
         $question = Question::findOrFail(Session::pull('question_id'));
         if(Answer::where('question_id', $question->id)->where('user_id', $user->id)->get()->count() == 0) {
           $answer = Answer::create(['answer' => 1,
-          'answer_time' => 200000,
+          'answer_time' => 300000,
           'justification_time' => 0,
-          'evaluation' => 3,
           'question_id' => $question->id,
           'user_id' => $user->id]);
 
@@ -50,18 +49,6 @@ class QuestionController extends Controller {
       // set Question num
       $question->num = Question::all()->count() - $question->count() + 1;
 
-      // hide informations
-      $question->question2 = null;
-      $question->right_answer2 = null;
-      if($user->explanation_type == User::EXPLANATION_CLASSIC) {
-        $question->explanation = $question->exp_classic;
-      } else {
-        $question->explanation = $question->exp_dialog;
-      }
-
-      $question->exp_dialog = null;
-      $question->exp_classic = null;
-
       return $question;
     }
 
@@ -83,7 +70,8 @@ class QuestionController extends Controller {
       $answer_time = round(microtime(true)*1000);
       $start_time = Session::get('start_time', false);
 
-      if($start_time === false) return "no start_time";
+      // if we did not store the starting time then default to max
+      if($start_time === false) $start_time = $answer_time - 300000;
 
       // Make sure the user is legit
       $user = User::getLoggedUser();
@@ -106,10 +94,15 @@ class QuestionController extends Controller {
         // Calculate the score
         $score = $user->score;
         $points = 10;
-        if($question->right_answer2 == $answer->answer) {
-          $points += 120 - ($answer->answer_time/1000) + 5;
-        }
-        $score->points += $points;
+
+        $points += 240 - ($answer->answer_time/1000) + 5;
+
+        $points += strlen($answer->justification) * 10;
+
+        $points = $points / 10;
+
+
+        $score->points += round($points);
         $score->answered_questions += 1;
         $score->total_time += $answer->answer_time;
         $score->save();
@@ -121,26 +114,55 @@ class QuestionController extends Controller {
     }
 
     private function handleAchievements($user, $question, $answer) {
+
+      $this->addAchievement($user, 3);
+
       // Justification Achievement
       if($answer->justification == "") {
-        $already = $user->achievements->contains(function($key, $value) {
-          return $value->id == 16;
-        });
-        if(!$already) {
-          $user->achievements()->attach(16);
-        }
+        $this->addAchievement($user, 1);
       } else {
-        $already = $user->achievements->contains(function($key, $value) {
-          return $value->id == 15;
-        });
-        if(!$already) {
-          $user->achievements()->attach(15);
+        $this->addAchievement($user, 2);
+      }
+
+
+      if($answer->answer == 1) { // Oui
+        $count = Answer::where('question_id', $question->id)->where('user_id', $user->id)->where('answer', 1)->get()->count();
+        if($count == 1) {
+          $this->addAchievement($user, 4);
+        } else if ($count == 3) {
+          $this->addAchievement($user, 5);
+        } else if ($count == 5) {
+          $this->addAchievement($user, 6);
+        }
+      } else if($answer->answer == -1) { // Oui
+        $count = Answer::where('question_id', $question->id)->where('user_id', $user->id)->where('answer', -1)->get()->count();
+        if($count == 1) {
+          $this->addAchievement($user, 7);
+        } else if ($count == 3) {
+          $this->addAchievement($user, 8);
+        } else if ($count == 5) {
+          $this->addAchievement($user, 9);
+        }
+      } else if($answer->answer == 0) { // Oui
+        $count = Answer::where('question_id', $question->id)->where('user_id', $user->id)->where('answer', 0)->get()->count();
+        if($count == 1) {
+          $this->addAchievement($user, 10);
+        } else if ($count == 3) {
+          $this->addAchievement($user, 11);
+        } else if ($count == 5) {
+          $this->addAchievement($user, 12);
         }
       }
-      // Question Achievement
-      $achievement_id = (($question->id - 1) * 2) + $answer->answer + 1;
-      $user->achievements()->attach($achievement_id);
 
       return "good";
+    }
+
+    public function addAchievement($user, $achievement_id) {
+      $already = $user->achievements->contains(function($key, $value) use ($achievement_id) {
+        return $value->id == $achievement_id;
+      });
+      if(!$already) {
+        $user->achievements()->attach($achievement_id);
+      }
     }
 }
