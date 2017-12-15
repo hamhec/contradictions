@@ -126,7 +126,7 @@ class QuestionController extends Controller {
 
 
       if($answer->answer == 1) { // Oui
-        $count = Answer::where('question_id', $question->id)->where('user_id', $user->id)->where('answer', 1)->get()->count();
+        $count = Answer::where('user_id', $user->id)->where('answer', 1)->get()->count();
         if($count == 1) {
           $this->addAchievement($user, 4);
         } else if ($count == 3) {
@@ -135,7 +135,7 @@ class QuestionController extends Controller {
           $this->addAchievement($user, 6);
         }
       } else if($answer->answer == -1) { // Oui
-        $count = Answer::where('question_id', $question->id)->where('user_id', $user->id)->where('answer', -1)->get()->count();
+        $count = Answer::where('user_id', $user->id)->where('answer', -1)->get()->count();
         if($count == 1) {
           $this->addAchievement($user, 7);
         } else if ($count == 3) {
@@ -144,7 +144,7 @@ class QuestionController extends Controller {
           $this->addAchievement($user, 9);
         }
       } else if($answer->answer == 0) { // Oui
-        $count = Answer::where('question_id', $question->id)->where('user_id', $user->id)->where('answer', 0)->get()->count();
+        $count = Answer::where('user_id', $user->id)->where('answer', 0)->get()->count();
         if($count == 1) {
           $this->addAchievement($user, 10);
         } else if ($count == 3) {
