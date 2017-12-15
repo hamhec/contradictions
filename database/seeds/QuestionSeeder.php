@@ -131,18 +131,18 @@ class QuestionSeeder extends Seeder
 
       // Question 8
       DB::table('questions')->insert([
-          'situation' => "L'objet <span class=\"red\">'o'</span> a la propriété <span class=\"red\">'A'</span>.<br/>
-            L'objet <span class=\"red\">'o'</span> a la propriété <span class=\"red\">'B'</span>.<br/>
+          'situation' => "L'objet <span class=\"red\">'o'</span> a la propriété <span class=\"red\">'W'</span>.<br/>
+            L'objet <span class=\"red\">'o'</span> a la propriété <span class=\"red\">'X'</span>.<br/>
 
             <br/>
 
-            Tout objet qui a la propriété <span class=\"red\">'A'</span> a aussi la propriété <span class=\"red\">'C'</span>.<br/>
-            Tout objet qui a la propriété <span class=\"red\">'B'</span> a aussi la propriété <span class=\"red\">'D'</span>.<br/>
+            Tout objet qui a la propriété <span class=\"red\">'W'</span> a aussi la propriété <span class=\"red\">'Y'</span>.<br/>
+            Tout objet qui a la propriété <span class=\"red\">'X'</span> a aussi la propriété <span class=\"red\">'Z'</span>.<br/>
             <br/>
 
-            Un objet ne peut pas avoir les propriétés <span class=\"red\">'C'</span> et <span class=\"red\">'D'</span> en même temps.",
+            Un objet ne peut pas avoir les propriétés <span class=\"red\">'Y'</span> et <span class=\"red\">'Z'</span> en même temps.",
 
-          'question' => "Peut-on dire que l'objet <span class=\"red\">'o'</span> a la propriété <span class=\"red\">'A'</span>?"
+          'question' => "Peut-on dire que l'objet <span class=\"red\">'o'</span> a la propriété <span class=\"red\">'W'</span>?"
       ]);
     }
 }

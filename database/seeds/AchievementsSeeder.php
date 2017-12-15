@@ -13,14 +13,14 @@ class AchievementsSeeder extends Seeder
     {
       // Justification
       DB::table('achievements')->insert([
-          'title' => "Je sais ce que je dis!",
-          'description' => "justifier une réponse.",
-          'icon' => "thumb_up"
-      ]);
-      DB::table('achievements')->insert([
           'title' => "Je ne sais pas ce que je dis.",
           'description' => "Ne pas justifier une réponse.",
           'icon' => "thumb_down"
+      ]);
+      DB::table('achievements')->insert([
+          'title' => "Je sais ce que je dis!",
+          'description' => "justifier une réponse.",
+          'icon' => "thumb_up"
       ]);
 
       // Questions
