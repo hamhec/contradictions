@@ -42,7 +42,7 @@ class AchievementsSeeder extends Seeder
           'icon' => "done_all"
       ]);
       DB::table('achievements')->insert([
-          'title' => "On peut tout dire!",
+          'title' => "Yes man!",
           'description' => "Répondre par 'Oui' à 5 questions.",
           'icon' => "check_circle"
       ]);
